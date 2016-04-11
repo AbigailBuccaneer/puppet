@@ -44,3 +44,24 @@ vcsrepo { '/usr/local/share/vim/bundle/vim-puppet':
   provider => 'git',
   source   => 'https://github.com/rodjek/vim-puppet.git',
 }
+
+package { 'puppet-lint':
+  ensure => '1.1.0',
+  provider => 'gem',
+}
+
+vcsrepo { '/usr/local/share/puppet':
+  ensure => latest,
+  provider => 'git',
+  source => 'https://github.com/AbigailBuccaneer/puppet.git',
+}
+
+package { 'anacron':
+  ensure => latest,
+}
+
+file_line { 'puppet-apply-anacron':
+  path => '/etc/anacrontab',
+  match => 'puppet apply',
+  line => '1 0 puppet-apply puppet apply --modulepath=/usr/local/share/puppet/modules /usr/local/share/puppet/manifests',
+}
