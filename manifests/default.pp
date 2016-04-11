@@ -2,6 +2,7 @@
 #^syntax detection
 
 include '::stdlib'
+include '::ntp'
 
 user { 'abigail':
     ensure => 'present',
