@@ -1,6 +1,3 @@
-#!/usr/bin/env ruby
-#^syntax detection
-
 include '::stdlib'
 include '::ntp'
 include '::logrotate'
@@ -40,4 +37,10 @@ vcsrepo { '/usr/local/share/vim/bundle/sensible.vim':
     ensure => 'latest',
     provider => 'git',
     source => 'https://github.com/tpope/vim-sensible.git',
+}
+
+vcsrepo { '/usr/local/share/vim/bundle/vim-puppet':
+    ensure => 'latest',
+    provider => 'git',
+    source => 'https://github.com/rodjek/vim-puppet.git',
 }
