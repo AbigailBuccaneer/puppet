@@ -3,7 +3,9 @@
 Dependencies:
 
 * `puppet`
+* `librarian-puppet`
 
-To run:
+To configure the system, as root, run:
 
-    puppet apply manifests/
+    librarian-puppet install
+    puppet apply --modulepath=modules/ manifests/
