@@ -3,6 +3,7 @@
 
 include '::stdlib'
 include '::ntp'
+include '::logrotate'
 
 user { 'abigail':
     ensure => 'present',
